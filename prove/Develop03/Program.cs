@@ -10,10 +10,7 @@ class Program
         Scripture s = new Scripture("But glory, honour, and peace, to every man that worketh good...");
       
         Console.Clear();
-        Console.Write($"{r.Text}  {s.Text} \n");
-        
-
-        
+        Console.Write($"{r.Text}  {s.Text} \n");       
         
         Console.WriteLine("Press 1. to add your own scripture. ");
         Console.WriteLine("Press 2. to memorize a scripture. ");

@@ -2,43 +2,40 @@ using System;
 
 public class BreathingActivity : Activity
 {
-    
-     public BreathingActivity( string activityName, int activityDuration) : base(activityName, activityDuration)
+    private Animation _animation = new Animation();
+    private string description = "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.";
+    private string activityType = "Breathing";
+    private int minDuration = 10;
+     public BreathingActivity() : base()
     {
-        
+        _description = description;
+        _activityType = activityType;
+        _minDuration = minDuration;
+        WelcomeMessage(); //display welcome message and get duration time        
     }
     
-    public void BreathingAnimation()
+    public void Animation()
     {
-        
-
         DateTime startAnimation = DateTime.Now;
         DateTime stopAnimation = startAnimation.AddSeconds(_activityDuration);
-        Console.WriteLine($"the duration time is {_activityDuration} in breathingAnimation");
+        TimeSpan elapsedTime;
+        int iLoop = 0;
 
-        while (DateTime.Now < stopAnimation)
+        while (DateTime.Now < stopAnimation || iLoop == 0)
         {
             Console.Write("\nBreathe in...  ");
-            for (int j = 5; j > 0; j--)
-            {
-                Console.Write(j);
-                Thread.Sleep(1000);
-                Console.Write("\b \b");
-            }
-
+            _animation.PauseWithCountdown();
             Console.WriteLine();
 
             Console.Write("Breathe out...  ");
-            for (int k = 5; k > 0; k--)
-            {
-                Console.Write(k);
-                Thread.Sleep(1000);
-                Console.Write("\b \b");
-            }
-                
-            
-       
-            }
+             _animation.PauseWithCountdown();  
+
+            iLoop++;
+        }
+
+        elapsedTime = DateTime.Now.Subtract(startAnimation);
+        _minDuration = elapsedTime.Seconds;
+        DisplayEndingMessage();
     }
 
 }
