@@ -11,7 +11,8 @@ public class BreathingActivity : Activity
         _description = description;
         _activityType = activityType;
         _minDuration = minDuration;
-        WelcomeMessage(); //display welcome message and get duration time        
+        WelcomeMessage(); //display welcome message and get duration time  
+        _animation.GetReady();      
     }
     
     public void Animation()
@@ -20,6 +21,7 @@ public class BreathingActivity : Activity
         DateTime stopAnimation = startAnimation.AddSeconds(_activityDuration);
         TimeSpan elapsedTime;
         int iLoop = 0;
+        
 
         while (DateTime.Now < stopAnimation || iLoop == 0)
         {
