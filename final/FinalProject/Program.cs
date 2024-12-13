@@ -8,6 +8,7 @@ class Program
        
         Pet pet = new Pet();
         pet.GetPet();
+        pet.CreateNewPet();
                 
 
     }

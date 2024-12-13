@@ -39,5 +39,16 @@ public class Pet
         Console.WriteLine($"The pet you chose is {_name}, it is a {_petType}, and the color is {_color}.");
     }
 
+    public void CreateNewPet()
+    {
+        Console.Write("What type of pet would you like to create? Dog, Cat, Bird, Hamster, Fish ");
+        _petType = Console.ReadLine();
+        Console.Write("What color is your pet? ");
+        _color = Console.ReadLine();
+        Console.Write("What is the name of your pet? ");
+        _name = Console.ReadLine();
+        Console.WriteLine($"You have created a {_color} {_petType}, named {_name}.");
+    }
+
 
 }
