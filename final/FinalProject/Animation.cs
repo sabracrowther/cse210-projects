@@ -45,6 +45,11 @@ public class Animation
         Console.WriteLine(String.Join(", ", vocalizations));  //Outputs each with a ", " in between on 1 line
         Console.WriteLine();    //empty line
     }
+
+    public void GetPoints(Pet pet)
+    {
+        Console.WriteLine($"You have {pet.Score} total points for this pet.");
+    }
     public void PauseWithSpinner()
     {
         PauseWithSpinner(4);
@@ -74,5 +79,15 @@ public class Animation
     {
         int randomNum = randSpeak.Next(vocalizations.Count);
         return vocalizations[randomNum];
+    }
+
+    public void MenuIO(Pet pet)
+    {
+        Console.WriteLine("\n" + pet.GetPetInfo());
+        PauseWithSpinner(3);
+        GetInteraction(pet.Interactions);
+        pet.InteractForPoints();
+        Console.WriteLine($"You earned {pet.CurrentPoints} points.");
+        GetPoints(pet);
     }
 }

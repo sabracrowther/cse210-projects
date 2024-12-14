@@ -51,60 +51,44 @@ class Program
         strInName = Console.ReadLine();
         Console.Write($"What color is {strInName}: ");
         strInColor = Console.ReadLine();
-       
-        
+
+        List<Pet> petList = new List<Pet>();
+               
         switch (int.Parse(strType)){
             case 1:     //dog
                 Dog dog = new Dog(strInName, strInColor);
                 makeNoise = animation.RandomTalkBack(dog.Vocalizations);
+                petList.Add(dog);
                 Console.WriteLine($"\n'{makeNoise}' - {dog.GetPetInfo()}");
-                
-            
-                // animation.OutputVocalizations(dog.Vocalizations);   //vocalizations
-                animation.PauseWithSpinner(5); //put wait in so the user can see the output
-                animation.OutputBodyFeatures(dog.BodyFeatures);
-                animation.PauseWithSpinner(5); //put wait in so the user can see the output
-                //TODO: when you interact you get points
-                animation.GetInteraction(dog.Interactions); 
-                //TODO: after interaction pet speaks
-                // animation.OutputVocalizations(dog.Vocalizations);   //vocalizations
+                animation.MenuIO(dog);
                 break;
             case 2:     //cat
                 Cat cat = new Cat(strInName, strInColor);
                 makeNoise = animation.RandomTalkBack(cat.Vocalizations);
+                petList.Add(cat);
                 Console.WriteLine($"\n'{makeNoise}' - {cat.GetPetInfo()}");
-                animation.PauseWithSpinner(5); //put wait in so the user can see the output
-                animation.OutputBodyFeatures(cat.BodyFeatures);
-                animation.PauseWithSpinner(5); //put wait in so the user can see the output
-                animation.GetInteraction(cat.Interactions);
+                animation.MenuIO(cat);
                 break;
             case 3:     //bird
                 Bird bird = new Bird(strInName, strInColor);
                 makeNoise = animation.RandomTalkBack(bird.Vocalizations);
+                petList.Add(bird);
                 Console.WriteLine($"\n'{makeNoise}' - {bird.GetPetInfo()}");
-                //Console.WriteLine("\n" + bird.GetPet());
-                animation.PauseWithSpinner(5); //put wait in so the user can see the output
-                animation.OutputBodyFeatures(bird.BodyFeatures);
-                animation.PauseWithSpinner(5); //put wait in so the user can see the output
-                animation.GetInteraction(bird.Interactions);
+                animation.MenuIO(bird);
                 break;
             case 4:     //hamster
                 Hamster hamster = new Hamster(strInName, strInColor);
                 makeNoise = animation.RandomTalkBack(hamster.Vocalizations);
+                petList.Add(hamster);
                 Console.WriteLine($"\n'{makeNoise}' - {hamster.GetPetInfo()}");
-                animation.PauseWithSpinner(5); //put wait in so the user can see the output
-                animation.OutputBodyFeatures(hamster.BodyFeatures);
-                animation.PauseWithSpinner(5); //put wait in so the user can see the output
-                animation.GetInteraction(hamster.Interactions);
+                animation.MenuIO(hamster);
                 break;
             case 5:     //fish
                 Fish fish = new Fish(strInName, strInColor);
-                makeNoise = animation.RandomTalkBack(fish.Vocalizations);
+                 makeNoise = animation.RandomTalkBack(fish.Vocalizations);
+                petList.Add(fish);
                 Console.WriteLine($"\n'{makeNoise}' - {fish.GetPetInfo()}");
-                animation.PauseWithSpinner(5); //put wait in so the user can see the output
-                animation.OutputBodyFeatures(fish.BodyFeatures);
-                animation.PauseWithSpinner(5); //put wait in so the user can see the output
-                animation.GetInteraction(fish.Interactions);
+                animation.MenuIO(fish);
                 break;
             default:
                 //do something

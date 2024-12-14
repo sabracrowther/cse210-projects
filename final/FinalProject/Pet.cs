@@ -7,11 +7,18 @@ public class Pet
     protected string _petType;
     protected string _color;
     protected string _description;
+    protected int _numInteractions;
+    protected int _score;
+    protected int _currentPoints;
+
     //set Lists to private so they can't be changed
     private List<string> _movements;
     private List<string> _interactions;
     private List<string> _bodyFeatures;
     private List<string> _vocalizations;
+    private int _frstInteractionPoints = 10;
+    private Random rand = new Random();
+    
 
     public Pet() //default constructor
     {        
@@ -19,7 +26,10 @@ public class Pet
         _movements = new List<string> {"eat", "sleep"};
         _interactions = new List<string> {"watch"};
         _bodyFeatures = new List<string> {"eyes", "head"};
-        _vocalizations = new List<string> {""};  //none is default        
+        _vocalizations = new List<string> {""};  //none is default  
+        _score = 0;
+        _numInteractions = 0;
+        _currentPoints = 0;      
     }
 
     public string Color{
@@ -35,6 +45,20 @@ public class Pet
     {
         get => _name;
     } 
+
+    public int Score
+    {
+        get=> _score;
+    }
+
+    public int CurrentPoints
+    {
+        get => _currentPoints;
+    }
+    public int NumInteractions
+    {
+        get => _numInteractions;
+    }
 
     public List<string> Movements
     {
@@ -96,6 +120,13 @@ public class Pet
         _vocalizations.AddRange(strList);
     }
 
+    public int InteractForPoints()
+    {
+        _currentPoints = _frstInteractionPoints;
+        _score += _currentPoints;
+        _numInteractions++;
+        return _score;
+    }
    
     public virtual string GetPetInfo()
     {
